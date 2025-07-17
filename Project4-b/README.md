@@ -23,4 +23,4 @@ SM3的长度拓展攻击基于SM3的merkle结构以及HASH的长度拓展特性�
 ### 结果展示
 <img width="987" height="167" alt="image" src="https://github.com/user-attachments/assets/c3103e68-33a3-48f0-a7b5-c39c659b5d4d" />
 
-由图可见，我们进行攻击得到的哈希结果和正常SM3得到的哈希结果是完全一致的。
+由图可见，我们进行攻击得到的哈希结果和正常SM3得到的哈希结果是完全一致的，这表明攻击成功。

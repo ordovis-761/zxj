@@ -4,41 +4,41 @@
 #include <string>   
 #include <sstream>  
 using namespace std;
-//SM3±ê×¼IV
+//SM3æ ‡å‡†IV
 const string IV = "7380166f4914b2b9172442d7da8a0600a96f30bc163138aae38dee4db0fb0e4e";
 uint32_t to_32(const string& s) {
     return static_cast<uint32_t>(stoul(s, nullptr, 16));
-}//8Î»hex×Ö·û´®×ª32Î»ÎŞ·ûºÅÕûÊı
-// °Ñ uint32_t Êä³öÎª 8 Î» hex£¬²»×ã²¹Áã
+}//8ä½hexå­—ç¬¦ä¸²è½¬32ä½æ— ç¬¦å·æ•´æ•°
+// æŠŠ uint32_t è¾“å‡ºä¸º 8 ä½ hexï¼Œä¸è¶³è¡¥é›¶
 string to_hex8(uint32_t x) {
     stringstream ss;
     ss << hex << setw(8) << setfill('0') << (x & 0xFFFFFFFF);
     return ss.str();
-}//×ªÎª8Î»hex²¢²¹Áã
+}//è½¬ä¸º8ä½hexå¹¶è¡¥é›¶
 uint32_t move(uint32_t x, int n) {
     return (x << n) | (x >> (32 - n));
-}// Ñ­»·×óÒÆ
+}// å¾ªç¯å·¦ç§»
 uint32_t T(int j) {
     return (j <= 15)?0x79cc4519u:0x7a879d8au;
-}// SM3³£ÊıT
+}// SM3å¸¸æ•°T
 uint32_t FF(uint32_t X, uint32_t Y, uint32_t Z, int j) {
     if (j <= 15) return X^Y^Z;
     return (X & Y)|(X & Z)|(Y & Z);
-}// ²¼¶ûº¯ÊıFF,Ê¹µÃ´óÓÚ15ÂÖÓÃ¶àÊı²¢¼ÆËã
+}// å¸ƒå°”å‡½æ•°FF,ä½¿å¾—å¤§äº15è½®ç”¨å¤šæ•°å¹¶è®¡ç®—
 uint32_t GG(uint32_t X, uint32_t Y, uint32_t Z, int j) {
     if (j <= 15) return X^Y^Z;
     return (X & Y) | ((~X) & Z);
-}// ²¼¶ûº¯ÊıGG£¬Ê¹µÃ´óÓÚ15ÂÖÓÃÌõ¼şÑ¡Ôñ
+}// å¸ƒå°”å‡½æ•°GGï¼Œä½¿å¾—å¤§äº15è½®ç”¨æ¡ä»¶é€‰æ‹©
 uint32_t P0(uint32_t x) {
     return x^move(x, 9)^move(x, 17);
 }
 uint32_t P1(uint32_t x) {
     return x^move(x, 15)^move(x, 23);
-}// ÖÃ»»º¯ÊıP0/P1
+}// ç½®æ¢å‡½æ•°P0/P1
 string zero_fill(const string& hexstr, int n) {
     if ((int)hexstr.size() >= n) return hexstr;
     return string(n - hexstr.size(), '0') + hexstr;
-}// °ÑÈÎÒâ³¤¶ÈµÄ¶ş½øÖÆ×Ö·û´®£¨4bit/hex£©×óÌî³äµ½ n Î»
+}// æŠŠä»»æ„é•¿åº¦çš„äºŒè¿›åˆ¶å­—ç¬¦ä¸²ï¼ˆ4bit/hexï¼‰å·¦å¡«å……åˆ° n ä½
 vector<uint32_t> extend(const string& block) {
     vector<uint32_t> W(68), W2(64);
     for (int i = 0; i < 16; i++) {
@@ -55,16 +55,16 @@ vector<uint32_t> extend(const string& block) {
     }
     W.insert(W.end(), W2.begin(), W2.end());
     return W;
-}// SM3ÏûÏ¢À©Õ¹
+}// SM3æ¶ˆæ¯æ‰©å±•
 string CF(const string& Vhex, const string& Bhex) {
     vector<uint32_t> V(8);
     for (int i = 0; i < 8; i++) {
         V[i] = to_32(Vhex.substr(8 * i, 8));
     } 
-    vector<uint32_t> W = extend(Bhex);//ÏûÏ¢À©Õ¹
+    vector<uint32_t> W = extend(Bhex);//æ¶ˆæ¯æ‰©å±•
     uint32_t A = V[0], B = V[1], C = V[2], D = V[3];
     uint32_t E = V[4], F = V[5], G = V[6], H = V[7];
-    for (int j = 0; j < 64; j++) {//64ÂÖµü´ú
+    for (int j = 0; j < 64; j++) {//64è½®è¿­ä»£
         uint32_t SS1 = move((move(A, 12) + E + move(T(j), j)) % 0x100000000u, 7);
         uint32_t SS2 = SS1 ^ move(A, 12);
         uint32_t TT1 = (FF(A, B, C, j) + D + SS2 + W[j + 68]) % 0x100000000u;
@@ -78,38 +78,38 @@ string CF(const string& Vhex, const string& Bhex) {
         F = E;
         E = P0(TT2);
     }
-    string output; //Æ´½ÓÊä³ö
+    string output; //æ‹¼æ¥è¾“å‡º
     for (int i = 0; i < 8; i++) {
         uint32_t Vi = V[i]^(i == 0 ? A : i == 1 ? B : i == 2 ? C : i == 3 ? D : i == 4 ? E : i == 5 ? F : i == 6 ? G : H);
         output += to_hex8(Vi);
     }
     return output;
-}// SM3Ñ¹Ëõº¯Êı
+}// SM3å‹ç¼©å‡½æ•°
 string SM3(const string& hexmsg) {
     string V = IV;
     int l = hexmsg.size() * 4;
     int k = ((448 - (l + 1)) % 512 + 512) % 512;
-    int pad_nibbles = (k + 1) / 4;//ÏûÏ¢Ìî³ä
+    int pad_nibbles = (k + 1) / 4;//æ¶ˆæ¯å¡«å……
     string m = hexmsg + "8" + string(pad_nibbles - 1, '0');
-    char buf[17]; //16 Î»Ê®Áù½øÖÆÊı×Ö+1¸ö'\0'
+    char buf[17]; //16 ä½åå…­è¿›åˆ¶æ•°å­—+1ä¸ª'\0'
     snprintf(buf, sizeof(buf), "%016x", l);
     m+= buf;
     int n = m.size() / 128;
-    //cout << "ÖĞ¼ä×´Ì¬£º" << CF(V, hexmsg);
+    //cout << "ä¸­é—´çŠ¶æ€ï¼š" << CF(V, hexmsg);
     for (int i = 0; i < n; i++) {
         string B = m.substr(128 * i, 128);
         V = CF(V, B);
     }
     return V;
-}// SM3 Ö÷º¯Êı£¬ÊäÈëhex×Ö·û´®
+}// SM3 ä¸»å‡½æ•°ï¼Œè¾“å…¥hexå­—ç¬¦ä¸²
 string SM3_lea(const string& testmsg, int num_block, const string& addmsg) {
     int l_orig = num_block * 512;
     int l2 = addmsg.size() * 4;
     int l_total = l_orig + l2;
     int k = ((448 - (l_total + 1)) % 512 + 512) % 512;
-    int pad_nibbles = (k + 1) / 4;//ÏàÍ¬Ìî³ä
+    int pad_nibbles = (k + 1) / 4;//ç›¸åŒå¡«å……
     string m2 = addmsg + "8" + string(pad_nibbles - 1, '0');
-    //¹¹ÔìÎ±Ôì¿é
+    //æ„é€ ä¼ªé€ å—
     char buf[17];                          
     snprintf(buf, sizeof(buf), "%016x", l_total);
     m2 += buf;
@@ -120,18 +120,18 @@ string SM3_lea(const string& testmsg, int num_block, const string& addmsg) {
         V = CF(V, B);
     }
     return V;
-}// ³¤¶ÈÀ©Õ¹¹¥»÷°æ±¾,¸ø¶¨num_block(Îª1)ºÍÖĞ¼äĞÅÏ¢
+}// é•¿åº¦æ‰©å±•æ”»å‡»ç‰ˆæœ¬,ç»™å®šnum_block(ä¸º1)å’Œä¸­é—´ä¿¡æ¯
 int main() {
     const int num_block = 1;
-    //¼Ù¶¨ÒÑÖªÖĞ¼ä×´Ì¬
+    //å‡å®šå·²çŸ¥ä¸­é—´çŠ¶æ€
     const string testmsg = "924039d1e63baa3ebda2ec9b11c2524950453040f9e78ecf2365b00916475e97";
-    const string addmsg = "07172025";//×·¼ÓĞÅÏ¢
-    string plain_ext = "7654612"+string(119,'0')+"18";//ºÏ·¨Ìî³ä»ñµÃ512bits¿é
+    const string addmsg = "07172025";//è¿½åŠ ä¿¡æ¯
+    string plain_ext = "7654612"+string(119,'0')+"18";//åˆæ³•å¡«å……è·å¾—512bitså—
     string original_hex = plain_ext + addmsg;
-    //string sm3t = SM3(plain_ext);//»ñÈ¡ÖĞ¼ä×´Ì¬
-    string sm3_ori = SM3(original_hex);//Ô­Ê¼¹şÏ£Öµ
-    string sm3_ext = SM3_lea(testmsg, num_block, addmsg);//À©Õ¹¹¥»÷¹şÏ£Öµ
-    cout << "Ô­Ê¼¼ÓÃÜ¹şÏ£Öµ£º "<<sm3_ori<< "\n";
-    cout << "ÍØÕ¹¹¥»÷¹şÏ£Öµ£º "<<sm3_ext<< "\n";
+    //string sm3t = SM3(plain_ext);//è·å–ä¸­é—´çŠ¶æ€
+    string sm3_ori = SM3(original_hex);//åŸå§‹å“ˆå¸Œå€¼
+    string sm3_ext = SM3_lea(testmsg, num_block, addmsg);//æ‰©å±•æ”»å‡»å“ˆå¸Œå€¼
+    cout << "åŸå§‹åŠ å¯†å“ˆå¸Œå€¼ï¼š "<<sm3_ori<< "\n";
+    cout << "æ‹“å±•æ”»å‡»å“ˆå¸Œå€¼ï¼š "<<sm3_ext<< "\n";
     return 0;
 }

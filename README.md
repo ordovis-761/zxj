@@ -18,7 +18,7 @@ Project 4(a): SM3的基本软件实现和优化
 
 Project 4(b): 验证基于SM3的Length-extension attack
 
-Project 4(c): 根据RFC6962构建Merkle树(10w叶子节点),并构建叶子的存在性证明和不存在性证明
+Project 4(c): 根据RFC6962构建Merkle树(10w叶子节点),构建叶子的存在性和不存在性证明
 
 Project 5(a):
 

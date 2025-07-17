@@ -13,6 +13,7 @@ SM3的长度拓展攻击基于SM3的merkle结构以及HASH的长度拓展特性�
 四、经过数学推导，由Vn得到的一个哈希结果即为原始SM3对M加密的哈希结果H1。
 
 攻击流程图如下：
+
 <img width="621" height="287" alt="Flowchart" src="https://github.com/user-attachments/assets/4303b1a6-44ad-43fa-8101-6c8d33fdea66" />
 
 ### 代码说明

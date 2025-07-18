@@ -33,9 +33,7 @@ doproof()函数用于生成给定叶节点索引的证明。其具体实现为�
 <img width="663" height="288" alt="proof_res2" src="https://github.com/user-attachments/assets/ea08f0ee-eed4-4094-b69a-7c8054fec53c" />
 
 <img width="664" height="225" alt="proof_res3" src="https://github.com/user-attachments/assets/69400d12-df16-423a-bfa7-935242c0d326" />
+
 由打印出的信息我们可以看到，7和761节点的非重复行数目恰好为其向上对2取对数的值（3和10），而且其总行数为17,此时有log2(100000)≈17，这表明这两个叶节点均可以逆推出根节点的值，其存在于当前的Merkle树中。
 
 而当节点数大于10w后，其打印出的列表元素个数明显不足，其哈希值必定无法逆推出根节点的信息，这表明其不存在于当下Merkle树中。
-
-
-

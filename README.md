@@ -10,7 +10,7 @@
 
 #### Project 1(b):
 
-#### Project 2: 基于数字水印的图片泄露检测
+#### Project 2   : 基于数字水印的图片泄露检测
 
 #### Project 3(a):
 
@@ -26,6 +26,6 @@
 
 #### Project 5(c):
 
-#### Project 6: Google Password Checkup验证
+#### Project 6   : Google Password Checkup验证
 
 

@@ -6,9 +6,9 @@
 
 各实践项目内容信息：
 
-Project 1(a):
+### Project 1(a):
 
-Project 1(b):
+### Project 1(b):
 
 Project 2: 基于数字水印的图片泄露检测
 

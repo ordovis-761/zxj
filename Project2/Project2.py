@@ -51,6 +51,6 @@ cv2.imwrite('watermarked.png', wm_img)
 extract_res1, _ = extract_wm(wm_img) #提取水印
 print(f'正常图像中的文本水印 = {extract_res1}')
 wm_img_flip = cv2.flip(wm_img, 1) #翻转鲁棒性测试
-cv2.imwrite('flip_wm.png', wm_img_flip)
+cv2.imwrite('flip_wm.png', wm_img_flip) #生成图像
 extract_res2, _=extract_wm(wm_img_flip, img_type='flip_h')
 print(f'翻转图像中的文本水印 = {extract_res2}')

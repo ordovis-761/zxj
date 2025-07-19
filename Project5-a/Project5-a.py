@@ -126,7 +126,7 @@ W = []
 W_ = []
 msg="SDUzxj" #测试消息
 start=time.time()
-c1,c2,c3=encrypt(msg)
+c1,c2,c3=encrypt(msg) #SM2加密所得三个参数均生成
 end=time.time()
 print("随机公钥点C1=",c1,"\n\n密文数据C2=",c2,"\n\n校验值C3=",c3,"\n")
 print("SM2加密用时:",round(end-start,6),"s")

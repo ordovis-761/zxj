@@ -26,6 +26,6 @@
 
 #### Project 5-c: satoshi数字签名的伪造
 
-#### Project 6-/: Google Password Checkup验证
+#### Project 6-/: Google Password Checkup协议的复现
 
 

@@ -22,7 +22,7 @@
 
 为了验证无消息攻击，我们构造一个ver_no_m()函数，用于模拟未知m的情况下进行验证的过程。
 
-最后构建pretend()伪造算法，根据数学原理找出对应点u,v和R，传入ver_no_m中，判断验证是否能通过。
+最后构建pretend()伪造算法，根据数学原理找出对应点u,v和R，传入ver_no_m()中，判断验证是否能通过。
 ### 结果分析
 <img width="795" height="196" alt="pretend_res" src="https://github.com/user-attachments/assets/b6954a28-f2d6-4fb5-bb8c-1e9d28eab954" />
 由运行结果可以看到，我们构造的satoshi无消息伪造算法攻击成功。

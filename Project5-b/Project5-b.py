@@ -46,18 +46,18 @@ def SCHN_sign(m, n, G, d,k): #Schnorr签名生成
     return r,s,e
 if __name__ == '__main__':
     #因为只是验证，所以参数尽可能小地选取
-    a = 5
-    b = 7
-    p = 9
-    G = [5, 1]
-    n = 11
+    a = 5 #曲线参数1
+    b = 7 #曲线参数2
+    p = 9 #域大小
+    G = [5, 1] #基点
+    n = 11 #阶数
     k = 2 #选取小素数用于验证
-    d1 = 3
+    d1 = 3 #两个私钥
     d2 = 5
-    P = p_mul_n(d1, G)
+    P = p_mul_n(d1, G) #公钥
     m1 = 'zxj761'
     m2 = "123456"
-    e1 = generate(m1, n)
+    e1 = generate(m1, n) #两个摘要
     e2 = generate(m2, n)
 
     print("测试信息公示：d1=",d1,"d2=",d2,"m1=",m1,"m2=",m2,"\n")

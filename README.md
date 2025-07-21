@@ -2,9 +2,20 @@
 #### 姓名：祝行健
 #### 学号：202200460161
 #### 班级：2022级网安2班
-本次课程实践作业由本人单人完成
+本次课程实践作业由本人单人完成。
 
-各实践项目内容信息：
+大项目完成情况：6/6
+
+小项目除Project 3(b)和Project 3(c)外均完成。
+
+#### 硬件配置信息
+CPU：11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz  2.69 GHz
+#### 软件配置信息
+Visual Studio Code 1.93.1 
+
+Microsoft Visual Studio Community 2022(64 位) 17.9.5
+
+### 实践项目内容目录：
 
 #### Project 1-a:
 
@@ -24,7 +35,7 @@
 
 #### Project 5-b: 关于签名算法误用的poc验证
 
-#### Project 5-c: satoshi数字签名的伪造
+#### Project 5-c: satoshi数字签名伪造算法
 
 #### Project 6-/: Google Password Checkup协议的复现
 

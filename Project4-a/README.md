@@ -30,6 +30,7 @@ SM3基本实现的测试结果如上，加密所用测试消息为SDUzxj，结�
 ### 结果呈现
 由于没有实现正确的加密，故我移除了结果打印的部分，添加了两个cout语句判断函数是否正常进行。
 <img width="411" height="271" alt="opti-test" src="https://github.com/user-attachments/assets/05ef1bb4-9b89-4302-be24-28e3856f13ad" />
+
 由最后的运行时间可以看到，并行后的代码运行速度明显加快。
 
 

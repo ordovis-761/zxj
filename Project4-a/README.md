@@ -18,6 +18,7 @@ SM3的实现大致可以分为填充分组、消息扩展、迭代压缩三个�
 完成上述步骤后，构建一个sm3()函数来调用sm3_iter()并完成结果的处理(例如补全，处理剩余块之类)，使结果更加直观。之后main()函数调用上述两个函数就能实现SM3的加密。在计时方面，由于本任务为SM3的简易实现，故计时采用Windows API微秒级计时器，由QueryPerformanceFrequency()系列函数实现。
 ### 结果呈现
 <img width="909" height="164" alt="origin_res" src="https://github.com/user-attachments/assets/71fd1bb9-c359-4430-80ee-c1097b4d1b1e" />
+
 SM3基本实现的测试结果如上，加密所用测试消息为SDUzxj，结果已在第三方SM3加密网站经过测试是正确的。
 
 ## SM3优化原理
@@ -25,6 +26,7 @@ SM3基本实现的测试结果如上，加密所用测试消息为SDUzxj，结�
 ### 代码思路
 由于是在visual studio中使用SIMD指令集，故我们需要在项目属性中设置相应指令集才能进行编译。
 <img width="833" height="395" alt="setting" src="https://github.com/user-attachments/assets/00e6e0dc-66ed-4d94-9a09-f91eb5727f03" />
+
 而优化后的SM3流程和之前一致，区别在于现在我们可以通过SIMD指令集进行并行操作，同时更新寄存器状态并进行并行压缩，故此时核心就是将IV的存储转为二维数组，之后引入一个索引结构便于定位即可。
 
 ### 结果呈现

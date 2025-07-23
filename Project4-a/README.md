@@ -20,8 +20,16 @@ SM3的实现大致可以分为填充分组、消息扩展、迭代压缩三个�
 <img width="909" height="164" alt="origin_res" src="https://github.com/user-attachments/assets/71fd1bb9-c359-4430-80ee-c1097b4d1b1e" />
 SM3基本实现的测试结果如上，加密所用测试消息为SDUzxj，结果已在第三方SM3加密网站经过测试是正确的。
 
-### SM3优化原理
+## SM3优化原理
 由于考研任务的存在，我没有过多时间系统性学习SIMD指令集相关知识，故SM3的优化任务只编写了大体的思路，结果并不正确，还望老师或助教见谅！
+### 代码思路
+由于是在visual studio中使用SIMD指令集，故我们需要在项目属性中设置相应指令集才能进行编译。
+<img width="833" height="395" alt="setting" src="https://github.com/user-attachments/assets/00e6e0dc-66ed-4d94-9a09-f91eb5727f03" />
+而优化后的SM3流程和之前一致，区别在于现在我们可以通过SIMD指令集进行并行操作，同时更新寄存器状态并进行并行压缩，故此时核心就是将IV的存储转为二维数组，之后引入一个索引结构便于定位即可。
+
+### 结果呈现
+由于没有实现正确的加密，故我移除了结果打印的部分，添加了两个cout语句判断函数是否正常进行，而由最后的运行时间可以看到，并行后的代码运行速度明显加快。
+<img width="411" height="271" alt="opti-test" src="https://github.com/user-attachments/assets/05ef1bb4-9b89-4302-be24-28e3856f13ad" />
 
 
 

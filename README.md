@@ -17,9 +17,9 @@ Microsoft Visual Studio Community 2022(64 位) 17.9.5
 
 ### 实践项目内容目录：
 
-#### Project 1-a:
+#### Project 1-a: SM4的T-table模式实现
 
-#### Project 1-b:
+#### Project 1-b: SM4的GCM模式优化
 
 #### Project 2-/: 基于数字水印的图片泄露检测
 

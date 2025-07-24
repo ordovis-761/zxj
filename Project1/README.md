@@ -29,5 +29,5 @@ Galois/Counter Mode是一种同时提认证分组加密模式。它将计数器�
 ### 结果分析
 <img width="611" height="229" alt="opti-res" src="https://github.com/user-attachments/assets/1d70c34c-ac75-4ea5-a63a-a61ec58f1de1" />
 
-由加密结果可以看到，GCM工作模式下的SM4加密速度较仅使用T-table速度有着明显提升。
+由加密结果可以看到，GCM工作模式下的SM4加密速度较仅使用T-table速度有着明显提升(由于IV随机，故加密结果与普通实现中的不一致)。
 

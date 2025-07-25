@@ -23,8 +23,6 @@ Microsoft Visual Studio Community 2022(64 位) 17.9.5 (C++)
 
 #### Project 2-/: 基于数字水印的图片泄露检测
 
-#### Project 3-a:
-
 #### Project 4-a: SM3的基本软件实现和优化
 
 #### Project 4-b: 验证基于SM3的Length-extension attack

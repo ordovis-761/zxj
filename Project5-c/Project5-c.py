@@ -45,7 +45,7 @@ def ECDSA_ver(m, n, G, r, s, P): #ECDSA签名验证算法
         return res
     except:
         print("模逆计算错误，请重试！")
-def ver_no_m(e, n, G, r, s, P): #未验证m的验证算法版本
+def ver_no_m(e, n, G, r, s, P): #未验证m的验证算法版本，用于测验伪造签名的有效性
     w = mul_inv(s, n)
     v1 = (e * w) % n
     v2 = (r * w) % n
@@ -76,6 +76,6 @@ m1 = 'zxj761'
 m2 = "SDU2025" #测试用消息
 r,s=ECDSA_sign(m1,n,G,d,k)
 print("签名结果为:",r,s)
-print("验证结果为",ECDSA_ver(m1, n, G, r, s, P),"\n") #签名验证，确保结果的有效性
+print("验证结果为",ECDSA_ver(m1, n, G, r, s, P),"\n") #签名正常验证，确保结果的有效性
 print("伪装结果为：")
 pretend(n,G,P) #无消息签名伪造攻击实施

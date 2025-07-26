@@ -1,10 +1,11 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstring>
 #include <immintrin.h>
 #include <iomanip> //流操作库
 #include <windows.h>
 #include <cinttypes>
 using namespace std;
+//本代码仅按照大体的SIMD指令集优化思路进行了实现，加密结果并不正确，故没有加密部分的结果验证
 uint32_t T[64]; //全局化常量表T
 void sm3_iter4(const uint8_t* data[4], uint32_t h[4][8]) 
 {

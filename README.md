@@ -11,9 +11,9 @@
 #### 硬件配置信息
 CPU：11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz  2.69 GHz
 #### 软件配置信息
-Visual Studio Code 1.93.1 (Python3)
+Python3编译器：Visual Studio Code 1.93.1
 
-Microsoft Visual Studio Community 2022(64 位) 17.9.5 (C++)
+C++编译器：Microsoft Visual Studio Community 2022(64 位) 17.9.5 
 
 ### 实践项目内容目录：
 

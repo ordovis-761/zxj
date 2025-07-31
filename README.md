@@ -6,7 +6,7 @@
 
 大项目完成情况：5/6 。   除Project 3外的任务均完成。
 
-由于我需要考研，Project 4-(a)代码未能100%实现要求，还望老师和助教见谅。
+由于考研任务在身，Project 4-(a)代码未能100%实现要求，还望老师和助教见谅。
 
 #### 硬件配置信息
 CPU：11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz  2.69 GHz
@@ -17,15 +17,15 @@ Microsoft Visual Studio Community 2022(64 位) 17.9.5 (C++)
 
 ### 实践项目内容目录：
 
-#### Project 1-a: SM4的T-table模式实现
+#### Project 1-a: SM4的软件实现(基于T-table结构)
 
-#### Project 1-b: SM4的GCM模式优化
+#### Project 1-b: SM4的GCM工作模式优化
 
-#### Project 2-/: 基于数字水印的图片泄露检测
+#### Project 2-/: 图片数字水印的嵌入和泄露检测
 
 #### Project 4-a: SM3的基本软件实现和优化
 
-#### Project 4-b: 验证基于SM3的Length-extension attack
+#### Project 4-b: 验证基于SM3的Length-extension attack(长度扩展攻击)
 
 #### Project 4-c: 根据RFC6962构建Merkle树(10w叶子节点),构建叶子的存在性和不存在性证明
 
